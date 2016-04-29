@@ -5,9 +5,16 @@ import {HEROES} from './mock-heroes';
 export class HeroService {
 
     getHeroes(){
-        return HEROES;
-
+         //return HEROES;
+        //Use the promise of the ECMASCRIPT6
+        return Promise.resolve(HEROES);
     }
+    getHeroesSlowly() {
+        return new Promise<Hero[]>(resolve =>
+            setTimeout(()=>resolve(HEROES), 2000) // 2 seconds
+        );
+    }
+
 
 
 }

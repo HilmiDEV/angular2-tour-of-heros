@@ -1,0 +1,21 @@
+# IDE
+.idea/
+*.iml
+
+# NodeJS
+node/
+node_modules/
+
+# Build
+dist/
+npm-debug.log
+temp/
+
+# The compiled js files from typescript
+src/*.js
+src/*.map
+src/*/*.js
+src/*/*.map
+
+
+typings/*

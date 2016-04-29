@@ -29,6 +29,8 @@ import {Hero} from '../shared/hero';
 export class HeroDetailComponent {
     @Input()
     hero: Hero;
+    constructor(private _heroService: HeroService) { }
+
 
 
 

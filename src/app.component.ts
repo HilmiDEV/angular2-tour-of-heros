@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
 import {Hero} from './shared/hero';
 import {HeroDetailComponent} from './components/hero-details.component';
+import {HeroService} from './shared/hero.service';
+import {OnInit} from 'angular2/core';
 
 @Component({
     styles:[`
@@ -65,7 +67,11 @@ import {HeroDetailComponent} from './components/hero-details.component';
                 </ul>
                 <my-hero-detail [hero]="selectedHero"></my-hero-detail>
                `,
-    directives: [HeroDetailComponent]
+    directives: [HeroDetailComponent],
+    //We have to teach the injector how to make a HeroService by registering a HeroService provider.
+    //Adding the providers array creates a new service instance
+    providers: [HeroService]
+
 })
 /* the Class definition of our component that can be handle the view
  by adding properties (attributs of the class) & behaviors (methods of the class)
@@ -75,23 +81,37 @@ import {HeroDetailComponent} from './components/hero-details.component';
  conventionally named AppComponent, that hosts the client user experience.
 
  */
-export class AppComponent {
+// We implement the Interface OnInit for implement the method ngOnInit
+// that called by Angular in the phase of construction of the component
+export class AppComponent implements OnInit {
     title = "Tour of Heroes with Angular2 & Typescript";
     selectedHero : Hero ;
-    public heroes = HEROES;
+    heroes: Hero[];
     onSelect(hero: Hero) { this.selectedHero = hero; }
+
+    //Add a constructor for Inject the service HeroService
+    /*
+    * The constructor itself does nothing.
+    * The parameter simultaneously defines a private _heroService property
+    * and identifies it as a HeroService injection site.
+    * */
+    constructor (private _heroService: HeroService) {
+        //Get the data from the HeroService
+
+
+
+    }
+    getHeroes() {
+        this.heroes = this._heroService.getHeroes();
+
+    }
+
+    //Implement the method ngOnInit
+    ngOnInit(){
+        this.getHeroes();
+    }
+
 
 }
 
-var HEROES: Hero[] = [
-    { "id": 11, "name": "Mr. Nice" },
-    { "id": 12, "name": "Narco" },
-    { "id": 13, "name": "Bombasto" },
-    { "id": 14, "name": "Celeritas" },
-    { "id": 15, "name": "Magneta" },
-    { "id": 16, "name": "RubberMan" },
-    { "id": 17, "name": "Dynama" },
-    { "id": 18, "name": "Dr IQ" },
-    { "id": 19, "name": "Magma" },
-    { "id": 20, "name": "Tornado" }
-];
+

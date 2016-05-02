@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {HeroService} from './shared/hero.service';
 import {HeroesComponent} from './components/heroes.component';
 import {DashboardComponent} from './components/dashboard.component';
+import {HeroDetailComponent} from './components/hero-details.component';
 /*
     The Angular router is a combination of multiple services (ROUTER_PROVIDERS),
      multiple directives (ROUTER_DIRECTIVES),
@@ -44,6 +45,11 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
         name : "Dashboard",
         component : DashboardComponent,
         useAsDefault : true
+    },
+    {
+        path: '/detail/:id',
+        name: 'HeroDetail',
+        component: HeroDetailComponent
     }
 ])
 

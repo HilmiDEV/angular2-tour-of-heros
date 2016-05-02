@@ -2,6 +2,7 @@
 
 import {Component, Input} from 'angular2/core';
 import {Hero} from '../shared/hero';
+import {HeroService} from '../shared/hero.service';
 
 //Define the component annotation (Decorator) for configure the component
 
@@ -27,6 +28,11 @@ import {Hero} from '../shared/hero';
 //we export the class to make it available to other components.
 
 export class HeroDetailComponent {
+    /*
+    * To bind the property from the <component-tag [property_target]="the value"></component-tag>
+    * <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+     * */
+    //Annotation to define the property hero like an input of other component
     @Input()
     hero: Hero;
     constructor(private _heroService: HeroService) { }

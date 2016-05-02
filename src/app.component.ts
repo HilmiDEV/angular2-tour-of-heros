@@ -29,7 +29,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
     providers: [
         ROUTER_PROVIDERS,
         HeroService
-    ]
+    ],
+    styleUrls : ['src/app.component.css']
 
 })
 

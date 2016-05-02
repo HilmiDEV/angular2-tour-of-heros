@@ -12,7 +12,8 @@ import { RouteParams } from 'angular2/router';
 // We create metadata with the @Component decorator
 @Component({
     selector : "<my-hero-detail>",
-    templateUrl: 'src/components/hero-details.component.html'
+    templateUrl: 'src/components/hero-details.component.html',
+    styleUrls : ['src/components/hero-details.component.css']
 })
 
 // Define the class component for define the manipulation

@@ -8,7 +8,7 @@ import { Router } from 'angular2/router';
     selector : "<my-dashboard>",
     //The Url from the root directory of the project
     templateUrl: 'src/components/dashboard.component.html',
-    styleUrls : ['serc/components/dashboard.component.css']
+    styleUrls : ['src/components/dashboard.component.css']
 })
 
 export class DashboardComponent implements OnInit{
